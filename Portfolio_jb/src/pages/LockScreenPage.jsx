@@ -12,29 +12,44 @@ const Container = styled.div`
     justify-content: center;
     flex-direction: column;
     align-items: center;
-
+    
     ${props =>
         props.$cursorclick &&
         css`
             cursor: pointer;
         `}
    
+   
 `;
+const ProfileDiv = styled.div`
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 4%;
+    position: absolute;
+    top: 20%;
+
+`
 const ProfileImg = styled.div`
     width: 10vw;
     height: 10vw;
+    min-width: 100px;
+    min-height: 100px;
     border-radius: 50%;
     background-image: url(${profile});
     background-size: cover;
-    margin-bottom: 2%;
+    margin-bottom: 20px;
 `
 const Name = styled.div`
     color: white;
     text-shadow: 1px 2px 8px  black;
     font-size: 22px;
-    margin-bottom: 1%;
+    margin-bottom: 10px;
+    text-align: center;
 `
 const PassWord = styled.div`
+    min-width: 100px;
     width: 10vw;
     height: 3.5vh;
     border-radius: 10px;
@@ -46,10 +61,13 @@ const PassWord = styled.div`
     align-items:center;
     padding-left: 10px;
     font-weight: bolder;
-    margin-bottom: 4%;
+    
 `
 const Introduce = styled.div`
+    position: absolute;
+    top: 60%;
     width: 45vw;
+    min-width: 250px;
     background: rgba( 255, 255, 255, 0.25 );
     box-shadow: 0 2px 8px 0 rgba( 128, 128, 128, 0.37 );
     backdrop-filter: blur( 1px );
@@ -68,6 +86,8 @@ const Introduce = styled.div`
     }
 `
 const NextPageExplain = styled.div`
+    position: absolute;
+    top: 90%;
     font-size: 12px;
     color: white;
     padding: 2%;
@@ -119,12 +139,13 @@ const LockScreenPage = () => {
  
     return (
         <Container onClick={handleClick} $cursorclick={explainVisible}  >
+        <ProfileDiv>
              <ProfileImg />
              <Name>배정빈</Name>
             {password.length ===0 ?<PassWord>암호 없음</PassWord>   :
             <PassWord>{password}</PassWord> 
             }
-              {/* <PassWord>{password}</PassWord>  */}
+        </ProfileDiv>
              {introVisible &&
              <Introduce>
               
