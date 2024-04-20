@@ -2,7 +2,8 @@ import { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import styled ,{css}from 'styled-components';
 import background from '../img/Ventura_dark1.png'
-import profile from '../img/profile.png'
+import ProfileImgName from '../components/LockScreen/ProfileImgName';
+
 const Container = styled.div`
    width: 100vw;
    height: 100vh;
@@ -31,38 +32,7 @@ const ProfileDiv = styled.div`
     top: 20%;
 
 `
-const ProfileImg = styled.div`
-    width: 10vw;
-    height: 10vw;
-    min-width: 100px;
-    min-height: 100px;
-    border-radius: 50%;
-    background-image: url(${profile});
-    background-size: cover;
-    margin-bottom: 20px;
-`
-const Name = styled.div`
-    color: white;
-    text-shadow: 1px 2px 8px  black;
-    font-size: 22px;
-    margin-bottom: 10px;
-    text-align: center;
-`
-const PassWord = styled.div`
-    min-width: 100px;
-    width: 10vw;
-    height: 3.5vh;
-    border-radius: 10px;
-    background-color: #ffffff30;
-    border: none;
-    font-size: 12px;
-    color: #ffffffdb;
-    display: flex;
-    align-items:center;
-    padding-left: 10px;
-    font-weight: bolder;
-    
-`
+
 const Introduce = styled.div`
     position: absolute;
     top: 60%;
@@ -105,25 +75,12 @@ const LockScreenPage = () => {
     const navigator = useNavigate();
     const [introVisible, setIntroVisible] = useState(false);
     const [explainVisible, setExplainVisible] = useState(false);
-    const [password, setPassword] = useState('');
     const handleClick = () => {
         if(explainVisible){
             navigator('/main');
         }
     };
-    useEffect(() => {
-       
-        const interval = setInterval(() => {
-            // password 상태의 길이가 4보다 작을 때만 "*"을 추가하도록 조건 추가
-                
-            if (password.length < 8) {
-                setPassword(prevPassword => prevPassword + '* ');
-            }
-        }, 1000);
-        return () => {
-            clearInterval(interval); 
-        };
-    }, [password.length]);
+  
     useEffect(()=>{
         const timer = setTimeout(() => {
             setIntroVisible(true);
@@ -140,11 +97,7 @@ const LockScreenPage = () => {
     return (
         <Container onClick={handleClick} $cursorclick={explainVisible}  >
         <ProfileDiv>
-             <ProfileImg />
-             <Name>배정빈</Name>
-            {password.length ===0 ?<PassWord>암호 없음</PassWord>   :
-            <PassWord>{password}</PassWord> 
-            }
+            <ProfileImgName/>
         </ProfileDiv>
              {introVisible &&
              <Introduce>
