@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 import background from '../img/Ventura_dark1.png'
-import NavBar from '../components/NavBar';
+import NavBar from '../components/navbar/NavBar';
 const Container = styled.div`
     width: 100vw;
     height: 100vh;

@@ -57,7 +57,7 @@ const Introduce = styled.div`
 `
 const NextPageExplain = styled.div`
     position: absolute;
-    top: 90%;
+    top: 85%;
     font-size: 12px;
     color: white;
     padding: 2%;

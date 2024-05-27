@@ -19,9 +19,9 @@ const Title = styled.div`
     color: white;
 
 `
-const IconUI = ({image , title}) => {
+const IconUI = ({image , title, onClick}) => {
     return (
-        <Container >
+        <Container  onClick={onClick}>
             <ImgIcon image={image}/>
             <Title>{title}</Title>
         </Container>
