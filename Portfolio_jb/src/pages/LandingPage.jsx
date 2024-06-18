@@ -12,6 +12,7 @@ const Container = styled.div`
     align-items: center;
 `
 const Title = styled.div`
+    width: 100%;
     font-size: 80px;
     font-family: 'DNFBitBitv2';
     color: #39AD7C;    
