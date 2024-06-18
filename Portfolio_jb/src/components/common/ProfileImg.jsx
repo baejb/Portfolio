@@ -1,16 +1,6 @@
 import styled from "styled-components";
-
 import Profile from "../../img/profile.png"
 
-const ProfileImg = ({ width = "150px", height = "150px" }) => {
-    return (
-      <Container style={{ width, height }}>
-        <Image src={Profile} />
-      </Container>
-    );
-  };
-
-export default ProfileImg;
 
 const Container = styled.div`
   display: flex;
@@ -26,3 +16,12 @@ const Image = styled.img`
   object-position: top;
   box-shadow: 1px 1px 8px #80808097;
 `;
+const ProfileImg = ({ width = "150px", height = "150px" }) => {
+    return (
+      <Container style={{ width, height }}>
+        <Image src={Profile} />
+      </Container>
+    );
+  };
+
+export default ProfileImg;
